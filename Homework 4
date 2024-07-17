@@ -60,3 +60,19 @@ function fromArrayToObjectList (arr) {
     }
     return result
 }
+
+Task 9
+// Calculate Factorial
+// Write a function that calculates the factorial of a number using reduce.
+
+function factorial (n) {
+    if (n <= 0) {
+        return 1
+    }
+    
+    const numbers = [];
+    for (let i = 1; i <= n; i++) {
+        numbers.push(i)
+    }
+     return result = numbers.reduce((accum, elem) => accum * elem, 1); 
+}   
