@@ -44,6 +44,52 @@ function zipp (arr1, arr2) {
     return result;
 }
 
+Task 4
+// Write a function that divides an array into chunks of a specified size.
+
+function chunkArray(arr) {
+    let size = 3;
+    let result = [];
+    let chunk = [];
+
+    arr.forEach((item, index) => {
+        chunk.push(item);
+        if (chunk.length === size || index === arr.length - 1) {
+            result.push(chunk);
+            chunk = [];
+        }
+    });
+
+    return result;
+}
+
+Task 5
+// Intersection of Arrays
+// Write a function that returns the intersection of two arrays.
+
+function intersection(arr1, arr2) {
+    return arr1.filter(elem => arr2.includes(elem));
+}
+
+Task 6
+// Find Duplicates
+// Write a function that finds all duplicates in an array.
+
+function findDuplicates(arr) {
+    const duplicates = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] === arr[j] && !duplicates.includes(arr[i])) {
+                duplicates.push(arr[i]);
+                break;
+            }
+        }
+    }
+
+    return duplicates;
+}
+
 Task 8
 // Count Occurrences
 // Write a function that counts the occurrences of each element in an array and returns an object
@@ -76,3 +122,20 @@ function factorial (n) {
     }
      return result = numbers.reduce((accum, elem) => accum * elem, 1); 
 }   
+
+Task 10
+// Find Missing Number
+// Write a function that finds the missing number in an array of consecutive numbers using reduce.
+
+function findMissingNumber (arr) {
+    const missingNumber = arr.sort((a, b) => a - b).reduce((accum, elem, index) => {
+        if (index > 0) {
+            let previous = arr[index - 1];
+            for (let i = previous + 1; i < elem; i++) {
+                accum += i;
+            }
+        }
+        return accum
+    }, [])
+    return missingNumber
+}
